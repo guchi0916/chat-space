@@ -1,0 +1,40 @@
+%body
+  .ChatMain
+    .ChatMain__GroupInfo
+      .GroupInfo__InfoBox
+        .InfoBox__GroupName
+          test
+        .InfoBox__Member
+          Member: aaa
+      .GroupInfo__Edit
+        = link_to "#", class: "Group__Edit__btn" do
+          = "Edit"
+    .ChatMain__MessageList
+      .MessageList__MessageBox
+        .MessageList__NameBox
+          .NameBox__Name
+            aaaa
+          .NameBox__Date
+            2020/8/16(Sun) 11:11:11
+        .MessageList__Message
+          こんにちわ
+      .MessageList__MessageBox
+        .MessageList__NameBox
+          .NameBox__Name
+            aaaa
+          .NameBox__Date
+            2020/8/16(Sun) 11:11:11
+        .MessageList__Message
+          こんにちわ
+    .ChatMain__MessageForm
+      %form.MessageForm__Box
+        .MessageForm__Contents
+          %input.InputContent{"placeholder": "type a message", "type": "text"}
+          %label.InputIcon
+            -# = link_to "#", class: "Image__btn" do
+            -# %i.fa.fa-image
+            %i.fa.fa-image
+            %input.Image__btn{"type": "file"}
+        %input.MessageForm__Submit{"value": "Send", "type": "submit"}
+        
+

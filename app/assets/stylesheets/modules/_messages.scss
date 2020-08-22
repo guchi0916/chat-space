@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+$white: #ffffff;
+
+@mixin letter-design($fSize, $color){
+  font-size: $fSize;
+  color: $color;
+}
+
+@mixin bg-design($height, $width, $bgColor) {
+  height: $height;
+  width: $width;
+  background-color: $bgColor;
+}
+
+@mixin color($back-color, $color) {
+  background-color: $back-color;
+  color: $color;
+}
+
+@mixin flex-box($align-items, $justify-content) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+.wrapper {
+  display: flex;
+  .SideBar {
+    @include bg-design(100vh, 300px, #253141);
+    &__UserName{
+      @include bg-design(100px, null, #253141);
+      @include flex-box(center, null);
+      .UserName__TextBox{
+        @include bg-design(20px, 260px, null);
+        margin: 0 20px;
+        @include flex-box(center, space-between);
+        .UserName__Text{
+          @include letter-design(16px, $white);
+        }
+        .UserName_icon{
+          @include bg-design(null, 60px, null);
+          text-align: center;
+          .Edit__btn{
+            @include letter-design(null, $white);
+            text-decoration: none;
+          }
+          .Design__btn{
+            @include letter-design(null, $white);
+            text-decoration: none;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    &__GroupList{
+      @include bg-design(calc(100vh - 100px), null, #2f3e51);
+      .GroupList__ListBox{
+        @include letter-design(null, $white);
+        padding: 20px 20px 40px 20px;
+        .GroupList__GroupName{
+          @include letter-design(15px, null);
+          margin-bottom: 5px;
+        }
+        .GroupList__MessageNotice{
+          font-size: 11px;
+        }
+      }
+    }
+
+  }
+  .ChatMain {
+    @include bg-design(100vh, calc(100vw - 300px), null);
+    &__GroupInfo{
+      @include bg-design(100px, null, $white);
+      border-bottom: 1px solid #eeeeee;
+      @include flex-box(null ,space-between);
+      .GroupInfo__InfoBox{
+        padding: 35px 0 0 40px;
+        .InfoBox__GroupName{
+          @include letter-design(20px, #333333); 
+        }
+        .InfoBox__Member{
+          @include letter-design(12px, #999999);
+          margin-top: 15px;
+        }
+      }
+      .GroupInfo__Edit{
+        @include bg-design(null, 72px, null);
+        margin-right: 40px;
+        @include flex-box(center, null);
+        .Group__Edit__btn{
+          @include bg-design(40px, null, null);
+          @include letter-design(16px, #38aef0);
+          border: 1px solid #38aef0;
+          padding: 0 20px;
+          @include flex-box(center, null);
+          text-decoration: none;
+        }
+      }
+    }
+    &__MessageList{
+      @include bg-design(calc(100vh - 190px), null, #fafafa);
+      .MessageList__MessageBox{
+        padding: 35px 0 46px 40px;
+        .MessageList__NameBox{
+          margin-bottom: 12px;
+          display: flex;
+          .NameBox__Name{
+            @include letter-design(16px, #333333);       
+          }
+          .NameBox__Date{
+            @include letter-design(12px, #999999);
+            padding-left: 10px; 
+          }
+        }
+      }
+      .MessageList__Message{
+        @include letter-design(14px, #434a54);
+      }
+    }
+    &__MessageForm{
+      @include bg-design(90px, null, #d2d2d2);
+      padding: 20px 50px 20px 40px;
+        .MessageForm__Box{
+          @include flex-box(center, space-between);
+          .MessageForm__Contents{
+            @include bg-design(null, 100%, null);
+            position: relative;
+            .InputContent{
+              @include bg-design(50px, 100%, null);
+              border: none;
+              padding: 0 45px 0 15px;
+            }
+            .InputIcon{
+              @include bg-design(50px, null, null);
+              position: absolute;
+              right: 10px;
+              .fa.fa-image{
+                @include letter-design(25px, null);
+                line-height: 50px;
+              }
+              .Image__btn{
+                display: none;
+              }
+            }
+          }
+          .MessageForm__Submit{
+            @include bg-design(50px, null, #38aef0);
+            @include letter-design(16px, $white);
+            border: none;
+            padding: 0 30px;
+            margin-left: 15px;
+          } 
+        }   
+    }
+  }
+}
