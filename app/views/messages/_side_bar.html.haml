@@ -1,0 +1,22 @@
+%body
+  .SideBar
+    .SideBar__UserName
+      .UserName__TextBox
+        .UserName__Text
+          name
+        .UserName_icon
+          = link_to "#", class: "Edit__btn" do
+            = icon('far', 'edit')
+          = link_to "#", class: "Design__btn" do
+            = icon('fas', 'cog')
+    .SideBar__GroupList
+      .GroupList__ListBox
+        .GroupList__GroupName
+          techcamp
+        .GroupList__MessageNotice
+          No message
+      .GroupList__ListBox
+        .GroupList__GroupName
+          techcamp2
+        .GroupList__MessageNotice
+          No message
