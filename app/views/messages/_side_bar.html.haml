@@ -5,19 +5,15 @@
         .UserName__Text
           = current_user.name
         .UserName_icon
-          = link_to "#", class: "Edit__btn" do
+          = link_to "groups/new", class: "Edit__btn" do
             = icon('far', 'edit')
-          -# = link_to "current_user", class: "Design__btn" do
           = link_to edit_user_path(current_user), class: "Design__btn" do
             = icon('fas', 'cog')
     .SideBar__GroupList
-      .GroupList__ListBox
-        .GroupList__GroupName
-          techcamp
-        .GroupList__MessageNotice
-          No message
-      .GroupList__ListBox
-        .GroupList__GroupName
-          techcamp2
-        .GroupList__MessageNotice
-          No message
+      - current_user.groups.each do |group|
+        .GroupList__ListBox
+          = link_to '#' do
+            .GroupList__GroupName
+              = group.name
+            .GroupList__MessageNotice
+              メッセージはまだありません
