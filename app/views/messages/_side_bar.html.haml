@@ -5,15 +5,15 @@
         .UserName__Text
           = current_user.name
         .UserName_icon
-          = link_to "groups/new", class: "Edit__btn" do
+          = link_to new_group_path(current_user), class: "Edit__btn" do
             = icon('far', 'edit')
           = link_to edit_user_path(current_user), class: "Design__btn" do
             = icon('fas', 'cog')
     .SideBar__GroupList
       - current_user.groups.each do |group|
         .GroupList__ListBox
-          = link_to '#' do
+          = link_to group_messages_path(group) do
             .GroupList__GroupName
               = group.name
             .GroupList__MessageNotice
-              メッセージはまだありません
+              = group.show_last_message

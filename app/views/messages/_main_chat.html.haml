@@ -3,38 +3,21 @@
     .ChatMain__GroupInfo
       .GroupInfo__InfoBox
         .InfoBox__GroupName
-          test
+          = @group.name
         .InfoBox__Member
-          Member: aaa
+          Member: 
+          - @group.users.each do |user|
+            = user.name
       .GroupInfo__Edit
-        = link_to "#", class: "Group__Edit__btn" do
+        = link_to edit_group_path(current_user), class: "Group__Edit__btn" do
           = "Edit"
     .ChatMain__MessageList
-      .MessageList__MessageBox
-        .MessageList__NameBox
-          .NameBox__Name
-            aaaa
-          .NameBox__Date
-            2020/8/16(Sun) 11:11:11
-        .MessageList__Message
-          こんにちわ
-      .MessageList__MessageBox
-        .MessageList__NameBox
-          .NameBox__Name
-            aaaa
-          .NameBox__Date
-            2020/8/16(Sun) 11:11:11
-        .MessageList__Message
-          こんにちわ
+      = render @messages
     .ChatMain__MessageForm
-      %form.MessageForm__Box
+      = form_with model: [@group, @message], html: {class: "MessageForm__Box"}, local: true do |f|
         .MessageForm__Contents
-          %input.InputContent{"placeholder": "type a message", "type": "text"}
-          %label.InputIcon
-            -# = link_to "#", class: "Image__btn" do
-            -# %i.fa.fa-image
-            %i.fa.fa-image
-            %input.Image__btn{"type": "file"}
-        %input.MessageForm__Submit{"value": "Send", "type": "submit"}
-        
-
+          = f.text_field :content, class: 'InputContent', placeholder: 'type a message'
+          = f.label :image, class: 'InputIcon' do
+            = icon('far', 'image', class: 'Form__icon')
+            = f.file_field :image, class: 'Image__btn'
+        = f.submit 'Send', class: 'MessageForm__Submit'
