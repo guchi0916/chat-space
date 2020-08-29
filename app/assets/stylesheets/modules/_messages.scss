@@ -61,11 +61,12 @@ $white: #ffffff;
         @include letter-design(null, $white);
         padding: 20px 20px 40px 20px;
         .GroupList__GroupName{
-          @include letter-design(15px, null);
+          @include letter-design(15px, $white);
           margin-bottom: 5px;
+
         }
         .GroupList__MessageNotice{
-          font-size: 11px;
+          @include letter-design(11px, $white);
         }
       }
     }
@@ -136,12 +137,10 @@ $white: #ffffff;
             }
             .InputIcon{
               @include bg-design(50px, null, null);
+              @include letter-design(25px, null);
               position: absolute;
               right: 10px;
-              .fa.fa-image{
-                @include letter-design(25px, null);
-                line-height: 50px;
-              }
+              line-height: 50px;
               .Image__btn{
                 display: none;
               }
