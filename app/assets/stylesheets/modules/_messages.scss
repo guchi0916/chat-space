@@ -103,6 +103,7 @@ $white: #ffffff;
       }
     }
     &__MessageList{
+      overflow: scroll;
       @include bg-design(calc(100vh - 190px), null, #fafafa);
       .MessageList__MessageBox{
         padding: 35px 0 46px 40px;
