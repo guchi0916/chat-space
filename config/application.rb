@@ -13,10 +13,7 @@ module ChatSpace
       g.helper false
       g.test_framework false
     end
-<<<<<<< Updated upstream
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
-=======
->>>>>>> Stashed changes
   end
 end
